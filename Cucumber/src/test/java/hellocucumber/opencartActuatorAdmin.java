@@ -22,7 +22,7 @@ public class opencartActuatorAdmin {
 
 
         // launch website -> localhost
-        driver.get("http://localhost/opencartsite/admin/");
+        driver.get("http://localhost/opencart/adminman/");
 
         // maximize the window - some web apps look different in different sizes
         driver.manage().window().setPosition(new Point(0, 0));
@@ -32,9 +32,9 @@ public class opencartActuatorAdmin {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='input-username']"))).sendKeys(username);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='input-password']"))).sendKeys(password);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[1]"))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("modal-security")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.btn-close[data-bs-dismiss='modal']"))).click();
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.modal-backdrop.show")));
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("modal-security")));
+        //wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.btn-close[data-bs-dismiss='modal']"))).click();
+        //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.modal-backdrop.show")));
         wait.until(ExpectedConditions.titleContains("Dashboard"));
     }
 

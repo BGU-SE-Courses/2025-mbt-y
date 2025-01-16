@@ -1,4 +1,4 @@
-Feature: Cancel coupon
+Feature: Admin and Customer with coupon
 
   Scenario Outline: Admin cancel coupon
     Given User is on log in page

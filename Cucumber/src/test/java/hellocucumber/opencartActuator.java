@@ -31,7 +31,7 @@ public class opencartActuator {
 
 
         // launch website -> localhost
-        driver.get("http://localhost/opencartsite/");
+        driver.get("http://localhost/opencart/");
 
         // maximize the window - some web apps look different in different sizes
         driver.manage().window().setPosition(new Point(700, 5));
@@ -52,6 +52,12 @@ public class opencartActuator {
 
     public void clickHomepage() {
         // Locate and click the homepage link/button
+        try{
+            Thread.sleep(2000);
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[1]"))).click();
     }
 
@@ -82,7 +88,12 @@ public class opencartActuator {
 
     public void clickShoppingCart() {
         // Locate and click the shopping cart button
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//header[1]/div[1]/div[1]/div[3]/div[1]/button[1]"))).click();
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='top']/div[1]/div[2]/ul[1]/li[4]/a[1]/span[1]"))).click();
     }
 
     public void scrollDown() {
@@ -107,6 +118,7 @@ public class opencartActuator {
 
     public void clickApplyCoupon() {
         // Locate and click the "apply coupon" button
+        storeOriginalPrice();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[1]/div[1]/div[1]/form[1]/div[2]/button[1]"))).click();
     }
 
@@ -117,6 +129,7 @@ public class opencartActuator {
 
         // Convert the price text to a numerical value
         originalPrice = parsePrice(priceText);
+        System.out.println("Original price: " + originalPrice);
     }
 
     @Test
@@ -135,13 +148,17 @@ public class opencartActuator {
          * @throws AssertionError If the discount is not applied correctly.
          */
         try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
             // Wait for the new total price to appear (or update)
             WebElement totalPriceElementAfter = new WebDriverWait(driver, Duration.ofSeconds(10))
-                    .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tfoot[1]/tr[4]/td[2]")));
+                    .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='checkout-total']/tr[5]/td[2]")));
             String totalPriceTextAfter = totalPriceElementAfter.getText();
             double newPrice = parsePrice(totalPriceTextAfter);
-
-            //System.out.println("New Price: " + newPrice);
+            System.out.println("New Price: " + newPrice);
 
             // Verify the new price is less than the original price
             assertTrue(newPrice < originalPrice, "Discount was not applied correctly. New price is not less than the original price.");

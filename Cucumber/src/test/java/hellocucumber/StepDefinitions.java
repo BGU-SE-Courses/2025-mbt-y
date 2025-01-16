@@ -13,7 +13,7 @@ public class StepDefinitions {
     private static List<opencartActuator> allopenCarts;
     private static List<opencartActuatorAdmin> allopenCartsA;
     private String webDriver = "webdriver.chrome.driver";
-    private String path = "C:\\ass4\\Selenium\\chromedriver.exe";
+    private String path = "C:\\project41\\2025-mbt-y\\Selenium\\chromedriver.exe";
     public void OpenCartInitUser() {
         System.out.println("--------------- INITIALIZING OPENCART TEST - OPENING WEBPAGE ---------------");
         if(allopenCarts == null){
@@ -90,7 +90,6 @@ public class StepDefinitions {
 
     @When("User logs in with {string} and {string}")
     public void userLogsInWith(String email, String password) {
-        OpenCartInitUser();
         opencartUser.goToLogin();
         opencartUser.enterLoginInfoUser(email, password);
     }
