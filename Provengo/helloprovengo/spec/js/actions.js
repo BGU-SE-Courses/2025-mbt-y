@@ -1,4 +1,5 @@
-//@provengo summon ctrl
+//@Provengo summon selenium
+//@Provengo summon ctrl
 
 // function composeQuery(session, data) {
 //   session.writeText(xpaths.searchWindow.searchInput, data.text)
@@ -55,23 +56,29 @@ function navigateToCoupons(session) {
 }
 
 function disableCoupon(session) {
-  with(session){
-    click(xpaths.couponListPage.editClick);
-    runCode(scrolling.down)
-    runCode(scrolling.down)
-    runCode(scrolling.down)
-    runCode(scrolling.down)
-    runCode(scrolling.down)
-    //waitForVisibility(xpaths.couponPage.statusButtonClick, 5000)
-    //click(xpaths.couponPage.statusButtonClick)
-    runCode(scrolling.up)
-    runCode(scrolling.up)
-    runCode(scrolling.up)
-    runCode(scrolling.up)
-    runCode(scrolling.up)
-    waitForVisibility(xpaths.couponPage.saveButtonClick, 5000)
-    click(xpaths.couponPage.saveButtonClick)
-  }
+  session.click(xpaths.couponListPage.editClick);
+  //waitForVisibility(xpaths.couponPage.statusButtonClick, 5000);
+  //session.runCode("document.getElementById('input-status').scrollIntoView();");
+  session.scrollToBottom();
+  session.click(xpaths.couponPage.statusButtonClick);
+    // try{
+    //   //scrollToElement(xpaths.couponPage.statusButtonClick)
+    //   scrollByAmount(0, 1000)
+    //   //runCode(scrolling.down)
+    // } catch (e)
+    // {
+    //   //waitForVisibility(xpaths.couponPage.statusButtonClick, 5000)
+    //   click(xpaths.couponPage.statusButtonClick)
+    // }
+
+    // runCode(scrolling.up)
+    // runCode(scrolling.up)
+    // runCode(scrolling.up)
+    // runCode(scrolling.up)
+    // runCode(scrolling.up)
+  //session.runCode("document.getElementById('input-status').scrollIntoView();");
+  session.scrollToTop();
+  session.click(xpaths.couponPage.saveButtonClick);
   // session.click(xpaths.couponListPage.editClick);
   // session.runCode(scrolling.down)
   // // Scroll to the bottom of the page

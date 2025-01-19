@@ -79,7 +79,8 @@ public class StepDefinitions {
     }
     // $$*TODO* explain what this step does$$
     @Then("the Coupon is disable")
-    public void theScenarioPasses() {
+    public void checkCouponDisable() {
+        opencartManager.checkCouponDisable();
     }
 
     // Customer Scenario Steps
