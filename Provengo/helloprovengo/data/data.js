@@ -2,7 +2,7 @@
  *  This is a good place to put common test data, project-wide constants, etc.
  */
 
-const URL = 'https://www.google.com/?hl=en';
+const URLADMIN = 'http://localhost/opencart/adminman';
 
 adminDetails = {
   username: "admin",
@@ -34,3 +34,8 @@ const xpaths = {
 }
 
 const searchTerm = 'pizza'
+
+const scrolling = {
+  down: "window.scrollTo(0, document.body.scrollHeight);",
+  up: "window.scrollTo(0, 0);"
+}

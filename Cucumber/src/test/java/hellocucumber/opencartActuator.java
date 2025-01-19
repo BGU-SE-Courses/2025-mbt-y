@@ -89,7 +89,7 @@ public class opencartActuator {
     public void clickShoppingCart() {
         // Locate and click the shopping cart button
         try {
-            Thread.sleep(8000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
