@@ -10,26 +10,16 @@ import java.util.List;
 public class StepDefinitions {
     private static opencartActuator opencartUser;
     private static opencartActuatorAdmin opencartManager;
-    private static List<opencartActuator> allopenCarts;
-    private static List<opencartActuatorAdmin> allopenCartsA;
     private String webDriver = "webdriver.chrome.driver";
     private String path = "C:\\project41\\2025-mbt-y\\Selenium\\chromedriver.exe";
     public void OpenCartInitUser() {
         System.out.println("--------------- INITIALIZING OPENCART TEST - OPENING WEBPAGE ---------------");
-        if(allopenCarts == null){
-            allopenCarts = new ArrayList<>();
-        }
         opencartUser = new opencartActuator();
-        allopenCarts.add(opencartUser);
         opencartUser.initSessionAsUser(webDriver, path);
     }
     public void OpenCartInitAdmin() {
         System.out.println("--------------- INITIALIZING OPENCART TEST - OPENING WEBPAGE ---------------");
-        if(allopenCartsA == null){
-            allopenCartsA = new ArrayList<>();
-        }
         opencartManager = new opencartActuatorAdmin();
-        allopenCartsA.add(opencartManager);
         opencartManager.initSessionAsAdmin(webDriver, path);
     }
 
