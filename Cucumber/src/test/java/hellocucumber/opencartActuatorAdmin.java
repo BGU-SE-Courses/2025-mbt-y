@@ -33,9 +33,6 @@ public class opencartActuatorAdmin {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='input-username']"))).sendKeys(username);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='input-password']"))).sendKeys(password);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[1]"))).click();
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("modal-security")));
-        //wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.btn-close[data-bs-dismiss='modal']"))).click();
-        //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.modal-backdrop.show")));
         wait.until(ExpectedConditions.titleContains("Dashboard"));
     }
 

@@ -33,13 +33,13 @@ public class StepDefinitions {
         opencartManager.initSessionAsAdmin(webDriver, path);
     }
 
-     //$$*TODO* explain what this step does$$
+     // This step starts a new Admin session in the admin login page
     @Given("User is on log in page")
     public void userIsOnHomePage() {
         OpenCartInitAdmin();
     }
 
-    // $$*TODO* explain what this step does$$
+    // This step starts the process of reaching the coupon page and changing it's status
     @When("Admin is logged in with {string} and {string}")
     public void user_is_logged_in_with_and(String email, String password) {
         opencartManager.enterLoginInfoAdmin(email, password);
@@ -77,18 +77,20 @@ public class StepDefinitions {
     public void AdminClickOnSaveButton() {
         opencartManager.ClickOnSaveButton();
     }
-    // $$*TODO* explain what this step does$$
+    // In this step we check to see that the coupon is indeed disabled
     @Then("the Coupon is disable")
     public void checkCouponDisable() {
         opencartManager.checkCouponDisable();
     }
 
     // Customer Scenario Steps
+    // This step starts a new Customer session in the Opencart homepage
     @Given("User is on home page")
     public void CustomerIsOnHomePage() {
         OpenCartInitUser();
     }
 
+    // This step starts the process of reaching the checkout page and applying a coupon
     @When("User logs in with {string} and {string}")
     public void userLogsInWith(String email, String password) {
         opencartUser.goToLogin();
@@ -140,6 +142,7 @@ public class StepDefinitions {
         opencartUser.clickApplyCoupon();
     }
 
+    // In this step we check that the total sum to pay is reduced
     @Then("The discount is applied to the total price")
     public void discountAppliedToTotal() {
         opencartUser.verifyDiscountAppliedTest();
