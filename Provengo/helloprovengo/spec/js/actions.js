@@ -16,14 +16,15 @@ function navigateToCoupons(session) {
 
 
 function disableCoupon(session) {
+  sync({request: Event("Start(disable_coupon)")});
   session.click(xpaths.couponListPage.editClick);
-  session.runCode(scrolling.down);
+  session.scrollToElement(xpaths.couponPage.statusButtonClick);
   session.waitForVisibility(xpaths.couponPage.statusButtonClick, 5000);
   session.click(xpaths.couponPage.statusButtonClick);
-  session.runCode(scrolling.up);
-  session.runCode(scrolling.up);
+  session.scrollToElement(xpaths.couponPage.saveButtonClick);
   session.waitForVisibility(xpaths.couponPage.saveButtonClick, 5000);
   session.click(xpaths.couponPage.saveButtonClick);
+  sync({request: Event("End(disable_coupon)")});
 }
 
 //Customer
@@ -37,10 +38,9 @@ function loginAsCustomer(session) {
 
 function addToCart(session) {
   session.click(xpaths.backHome.homeLogo);
-  session.runCode(scrolling.down);
+  session.scrollToElement(xpaths.addProduct.addToCart);
   session.click(xpaths.addProduct.addToCart);
-  session.runCode(scrolling.up);
-  session.runCode(scrolling.up);
+  session.scrollToElement(xpaths.backHome.homeLogo);
   session.click(xpaths.backHome.homeLogo);
   session.click(xpaths.addProduct.goToCheckOut);
 
@@ -48,9 +48,12 @@ function addToCart(session) {
 
 
 function applyCoupon(session) {
-  session.runCode(scrolling.down);
+  sync({request: Event("Start(applying_coupon)")});
+  session.scrollToElement(xpaths.checkOutPage.addCoupon);
   session.waitForVisibility(xpaths.checkOutPage.addCoupon, 5000);
   session.click(xpaths.checkOutPage.addCoupon);
   session.writeText(xpaths.checkOutPage.couponTestBox, customerDetails.couponCode);
+  session.scrollToElement(xpaths.checkOutPage.couponApplyButton);
   session.click(xpaths.checkOutPage.couponApplyButton);
+  sync({request: Event("End(applying_coupon)")});
 }

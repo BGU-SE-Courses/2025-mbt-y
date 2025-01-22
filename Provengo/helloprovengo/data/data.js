@@ -13,7 +13,7 @@ adminDetails = {
 customerDetails = {
   username: "fun@gmail.com",
   password: "1234",
-  couponCode: "itsfree"
+  couponCode: "2222"
 }
 
 const xpaths = {
@@ -59,7 +59,7 @@ const xpaths = {
     viewCart: "//*[@id='header-cart']/div[1]/ul[1]/li[1]/div[1]/p[1]/a[1]/strong[1]"
   },
   checkOutPage:{
-    addCoupon : "//div[1]/h2[1]/button[1]",
+    addCoupon : "//*[@id='accordion']/div[1]/h2[1]/button[1]",
     couponTestBox : "//*[@id='input-coupon']",
     couponApplyButton : "//div[1]/div[1]/div[1]/form[1]/div[2]/button[1]"
   }

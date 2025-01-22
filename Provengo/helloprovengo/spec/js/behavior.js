@@ -15,3 +15,10 @@ bthread('Customer apply Coupon', function () {
   addToCart(session);
   applyCoupon(session);
 });
+
+// bthread('coupon is active when applied', function () {
+//   sync({
+//     waitFor: Event("End(applying_coupon)"),
+//     block: Event("Start(disable_coupon)")
+//   })
+// })
