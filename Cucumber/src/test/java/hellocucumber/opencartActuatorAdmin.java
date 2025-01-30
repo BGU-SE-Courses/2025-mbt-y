@@ -86,12 +86,8 @@ public class opencartActuatorAdmin {
     public void checkCouponDisable(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//nav[1]/ul[1]/li[7]/ul[1]/li[3]/a[1]"))).click();
         wait.until(ExpectedConditions.titleContains("Coupons"));
-        try {
-            WebElement statusElement = driver.findElement(By.xpath("//tr[1]/td[2]/small[1]"));
-            String actualStatus = statusElement.getText();
-            assertEquals("Disabled", actualStatus);
-        } catch (Exception e) {
-            throw new AssertionError(e);
-        }
+        WebElement statusElement = driver.findElement(By.xpath("//tr[1]/td[2]/small[1]"));
+        String actualStatus = statusElement.getText();
+        assertEquals("Disabled", actualStatus);
     }
 }
